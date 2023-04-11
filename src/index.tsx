@@ -1,3 +1,3 @@
 import { WhizFlow } from 'WhizFlow';
 
-export default { WhizFlow };
+export default WhizFlow;
