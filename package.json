@@ -16,7 +16,7 @@
   },
   "homepage": "",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
     "build": "tsc && rollup -c rollup.config.js && yarn make:docs",
@@ -27,7 +27,8 @@
     "test:ci": "cross-env CI=1 jest",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "release-it"
   },
   "engines": {
     "node": ">=14"
@@ -86,5 +87,9 @@
       "./node_modules/.bin/prettier --write",
       "./node_modules/.bin/eslint"
     ]
+  },
+  "dependencies": {
+    "release-it": "^15.10.1",
+    "typedoc-plugin-missing-exports": "^1.0.0"
   }
 }

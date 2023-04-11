@@ -1,6 +1,7 @@
 {
   "out": "docs",
   "entryPoints": ["./src"],
+  "plugin": ["typedoc-plugin-missing-exports"],
   "exclude": "**/**/*+(.spec|.test).**",
   "theme": "default",
   "includeVersion": true,

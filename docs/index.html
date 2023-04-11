@@ -1,0 +1,276 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>whizflow - v0.1.0</title><meta name="description" content="Documentation for whizflow - v0.1.0"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">whizflow - v0.1.0</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>whizflow - v0.1.0</h2></div>
+<div class="tsd-panel tsd-typography">
+<a href="#whizflow" id="whizflow" style="color: inherit; text-decoration: none;">
+  <h1>WhizFlow</h1>
+</a>
+<p>WhizFlow is a lightweight, headless and extensible React library for building dynamic multi-step forms or troubleshooting workflows.</p>
+
+<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+  <h2>Features</h2>
+</a>
+<ul>
+<li>Headless: Gives you full control over the UI and styling.</li>
+<li>Extensible: Allows custom question types and render implementations.</li>
+<li>Flexible: Easily build complex workflows with conditional branching.</li>
+</ul>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<pre><code class="language-bash"><span class="hl-0">npm </span><span class="hl-1">install</span><span class="hl-0"> </span><span class="hl-1">whizflow</span>
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash"><span class="hl-0">yarn </span><span class="hl-1">add</span><span class="hl-0"> </span><span class="hl-1">whizflow</span>
+</code></pre>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<ol>
+<li>Import WhizFlow and required types:</li>
+</ol>
+<pre><code class="language-jsx"><span class="hl-2">import</span><span class="hl-0"> </span><span class="hl-3">WhizFlow</span><span class="hl-0"> </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-1">&#39;whizflow&#39;</span><span class="hl-0">;</span><br/><span class="hl-2">import</span><span class="hl-0"> { </span><span class="hl-3">Step</span><span class="hl-0"> } </span><span class="hl-2">from</span><span class="hl-0"> </span><span class="hl-1">&#39;whizflow/types&#39;</span><span class="hl-0">;</span>
+</code></pre>
+<ol start="2">
+<li>Define your workflow:</li>
+</ol>
+<pre><code class="language-jsx"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">workflow</span><span class="hl-0">: </span><span class="hl-6">Step</span><span class="hl-0">[] = [</span><br/><span class="hl-0">  {</span><br/><span class="hl-0">    </span><span class="hl-3">id:</span><span class="hl-0"> </span><span class="hl-1">&#39;step1&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-3">questions:</span><span class="hl-0"> [</span><br/><span class="hl-0">      {</span><br/><span class="hl-0">        </span><span class="hl-3">id:</span><span class="hl-0"> </span><span class="hl-1">&#39;question1&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">prompt:</span><span class="hl-0"> </span><span class="hl-1">&#39;What is your name?&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">inputType:</span><span class="hl-0"> </span><span class="hl-1">&#39;text&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">      },</span><br/><span class="hl-0">    ],</span><br/><span class="hl-0">    </span><span class="hl-7">next</span><span class="hl-3">:</span><span class="hl-0"> (</span><span class="hl-3">answers</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> </span><span class="hl-1">&#39;step2&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">  {</span><br/><span class="hl-0">    </span><span class="hl-3">id:</span><span class="hl-0"> </span><span class="hl-1">&#39;step2&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-3">questions:</span><span class="hl-0"> [</span><br/><span class="hl-0">      {</span><br/><span class="hl-0">        </span><span class="hl-3">id:</span><span class="hl-0"> </span><span class="hl-1">&#39;question2&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">prompt:</span><span class="hl-0"> </span><span class="hl-1">&#39;What is your favorite color?&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">        </span><span class="hl-3">inputType:</span><span class="hl-0"> </span><span class="hl-1">&#39;text&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">      },</span><br/><span class="hl-0">    ],</span><br/><span class="hl-0">    </span><span class="hl-7">next</span><span class="hl-3">:</span><span class="hl-0"> (</span><span class="hl-3">answers</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> </span><span class="hl-1">&#39;done&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">];</span>
+</code></pre>
+<ol start="3">
+<li>Define your custom question types (optional):</li>
+</ol>
+<pre><code class="language-jsx"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">questionTypes</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-7">text</span><span class="hl-3">:</span><span class="hl-0"> (</span><span class="hl-3">question</span><span class="hl-0">, </span><span class="hl-3">answers</span><span class="hl-0">, </span><span class="hl-3">setAnswers</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> (</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;</span><span class="hl-9">div</span><span class="hl-0"> </span><span class="hl-10">key</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><br/><span class="hl-0">      </span><span class="hl-8">&lt;</span><span class="hl-9">label</span><span class="hl-0"> </span><span class="hl-10">htmlFor</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">prompt</span><span class="hl-4">}</span><span class="hl-8">&lt;/</span><span class="hl-9">label</span><span class="hl-8">&gt;</span><br/><span class="hl-0">      </span><span class="hl-8">&lt;</span><span class="hl-9">input</span><br/><span class="hl-0">        </span><span class="hl-10">id</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><br/><span class="hl-0">        </span><span class="hl-10">type</span><span class="hl-0">=</span><span class="hl-1">&quot;text&quot;</span><br/><span class="hl-0">        </span><span class="hl-10">value</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">answers</span><span class="hl-11">[</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-11">] </span><span class="hl-0">||</span><span class="hl-11"> </span><span class="hl-1">&#39;&#39;</span><span class="hl-4">}</span><br/><span class="hl-0">        </span><span class="hl-10">onChange</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-11">(</span><span class="hl-3">e</span><span class="hl-11">) </span><span class="hl-4">=&gt;</span><br/><span class="hl-11">          </span><span class="hl-7">setAnswers</span><span class="hl-11">({ </span><span class="hl-0">...</span><span class="hl-3">answers</span><span class="hl-11">, </span><span class="hl-3">[question.id]:</span><span class="hl-11"> </span><span class="hl-3">e</span><span class="hl-11">.</span><span class="hl-3">target</span><span class="hl-11">.</span><span class="hl-3">value</span><span class="hl-11"> })</span><br/><span class="hl-11">        </span><span class="hl-4">}</span><br/><span class="hl-0">      </span><span class="hl-8">/&gt;</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;/</span><span class="hl-9">div</span><span class="hl-8">&gt;</span><br/><span class="hl-0">  ),</span><br/><span class="hl-0">  </span><span class="hl-12">// Add more question types and their render functions here</span><br/><span class="hl-0">};</span>
+</code></pre>
+<ol start="4">
+<li>Use the WhizFlow component in your application:</li>
+</ol>
+<pre><code class="language-jsx"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-7">YourComponent</span><span class="hl-0"> = () </span><span class="hl-4">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-2">return</span><span class="hl-0"> (</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;</span><span class="hl-6">WhizFlow</span><span class="hl-0"> </span><span class="hl-10">workflow</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">workflow</span><span class="hl-4">}</span><span class="hl-0"> </span><span class="hl-10">questionTypes</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">questionTypes</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><br/><span class="hl-0">      </span><span class="hl-4">{</span><span class="hl-11">({ </span><span class="hl-3">step</span><span class="hl-11">, </span><span class="hl-3">answers</span><span class="hl-11">, </span><span class="hl-3">setAnswers</span><span class="hl-11">, </span><span class="hl-3">handleNext</span><span class="hl-11">, </span><span class="hl-3">renderQuestion</span><span class="hl-11"> }) </span><span class="hl-4">=&gt;</span><span class="hl-11"> (</span><br/><span class="hl-11">        </span><span class="hl-8">&lt;</span><span class="hl-9">div</span><span class="hl-8">&gt;</span><br/><span class="hl-11">          </span><span class="hl-4">{</span><span class="hl-3">step</span><span class="hl-11">.</span><span class="hl-3">questions</span><span class="hl-11">.</span><span class="hl-7">map</span><span class="hl-11">((</span><span class="hl-3">question</span><span class="hl-11">) </span><span class="hl-4">=&gt;</span><span class="hl-11"> </span><span class="hl-7">renderQuestion</span><span class="hl-11">(</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-11">))</span><span class="hl-4">}</span><br/><span class="hl-11">          </span><span class="hl-8">&lt;</span><span class="hl-9">button</span><span class="hl-11"> </span><span class="hl-10">onClick</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">handleNext</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><span class="hl-11">Next</span><span class="hl-8">&lt;/</span><span class="hl-9">button</span><span class="hl-8">&gt;</span><br/><span class="hl-11">        </span><span class="hl-8">&lt;/</span><span class="hl-9">div</span><span class="hl-8">&gt;</span><br/><span class="hl-11">      )</span><span class="hl-4">}</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;/</span><span class="hl-6">WhizFlow</span><span class="hl-8">&gt;</span><br/><span class="hl-0">  );</span><br/><span class="hl-0">};</span><br/><br/><span class="hl-2">export</span><span class="hl-0"> </span><span class="hl-2">default</span><span class="hl-0"> </span><span class="hl-3">YourComponent</span><span class="hl-0">;</span>
+</code></pre>
+
+<a href="#types" id="types" style="color: inherit; text-decoration: none;">
+  <h2>Types</h2>
+</a>
+
+<a href="#whizflow-1" id="whizflow-1" style="color: inherit; text-decoration: none;">
+  <h3>WhizFlow</h3>
+</a>
+<p><code>WhizFlow</code> is the main component for managing the workflow. It accepts the following props:</p>
+
+<a href="#props" id="props" style="color: inherit; text-decoration: none;">
+  <h4>Props</h4>
+</a>
+<ul>
+<li><code>workflow</code> (required): An array of <code>Step</code> objects defining the workflow.</li>
+<li><code>onComplete</code> (optional): A callback function to be called when the workflow reaches the <code>done</code> step.</li>
+<li><code>questionTypes</code> (optional): An object with keys representing the question type and values as the corresponding render functions.</li>
+</ul>
+
+<a href="#render-props" id="render-props" style="color: inherit; text-decoration: none;">
+  <h4>Render Props</h4>
+</a>
+<ul>
+<li><code>step</code>: The current step object.</li>
+<li><code>answers</code>: An object containing the answers for each question in the workflow.</li>
+<li><code>setAnswers</code>: A function to update the <code>answers</code> object.</li>
+<li><code>handleNext</code>: A function to handle navigation to the next step in the workflow.</li>
+<li><code>renderQuestion</code>: A function to render the correct question type based on the provided dictionary.</li>
+</ul>
+
+<a href="#step" id="step" style="color: inherit; text-decoration: none;">
+  <h3>Step</h3>
+</a>
+<p>A <code>Step</code> object defines a single step in the workflow and includes the following properties:</p>
+<ul>
+<li><code>id</code>: A unique identifier for the step.</li>
+<li><code>questions</code>: An array of <code>Question</code> objects.</li>
+<li><code>next</code>: A function that determines the next step in the workflow based on the current answers. It should return the next step&#39;s ID or <code>done</code> if the workflow is complete.</li>
+</ul>
+
+<a href="#question" id="question" style="color: inherit; text-decoration: none;">
+  <h3>Question</h3>
+</a>
+<p>A <code>Question</code> object defines a single question within a step and includes the following properties:</p>
+<ul>
+<li><code>id</code>: A unique identifier for the question.</li>
+<li><code>prompt</code>: The question&#39;s text.</li>
+<li><code>inputType</code>: The question&#39;s input type, which corresponds to the key in the <code>questionTypes</code> prop passed to the <code>WhizFlow</code> component.</li>
+</ul>
+
+<a href="#questiontypes" id="questiontypes" style="color: inherit; text-decoration: none;">
+  <h3>QuestionTypes</h3>
+</a>
+<p>An object with keys representing the question type and values as render functions. The render functions should take the question, answers, and a <code>setAnswers</code> function as arguments and return a React element. You can define custom question types and their implementations in the <code>questionTypes</code> object.</p>
+<pre><code class="language-tsx"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">questionTypes</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-7">text</span><span class="hl-3">:</span><span class="hl-0"> (</span><span class="hl-3">question</span><span class="hl-0">, </span><span class="hl-3">answers</span><span class="hl-0">, </span><span class="hl-3">setAnswers</span><span class="hl-0">) </span><span class="hl-4">=&gt;</span><span class="hl-0"> (</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;</span><span class="hl-9">div</span><span class="hl-0"> </span><span class="hl-10">key</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><br/><span class="hl-0">      </span><span class="hl-8">&lt;</span><span class="hl-9">label</span><span class="hl-0"> </span><span class="hl-10">htmlFor</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><span class="hl-8">&gt;</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">prompt</span><span class="hl-4">}</span><span class="hl-8">&lt;/</span><span class="hl-9">label</span><span class="hl-8">&gt;</span><br/><span class="hl-0">      </span><span class="hl-8">&lt;</span><span class="hl-9">input</span><br/><span class="hl-0">        </span><span class="hl-10">id</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-4">}</span><br/><span class="hl-0">        </span><span class="hl-10">type</span><span class="hl-0">=</span><span class="hl-1">&quot;text&quot;</span><br/><span class="hl-0">        </span><span class="hl-10">value</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-3">answers</span><span class="hl-11">[</span><span class="hl-3">question</span><span class="hl-11">.</span><span class="hl-3">id</span><span class="hl-11">] </span><span class="hl-0">||</span><span class="hl-11"> </span><span class="hl-1">&#39;&#39;</span><span class="hl-4">}</span><br/><span class="hl-0">        </span><span class="hl-10">onChange</span><span class="hl-0">=</span><span class="hl-4">{</span><span class="hl-11">(</span><span class="hl-3">e</span><span class="hl-11">) </span><span class="hl-4">=&gt;</span><br/><span class="hl-11">          </span><span class="hl-7">setAnswers</span><span class="hl-11">({ </span><span class="hl-0">...</span><span class="hl-3">answers</span><span class="hl-11">, </span><span class="hl-3">[question.id]:</span><span class="hl-11"> </span><span class="hl-3">e</span><span class="hl-11">.</span><span class="hl-3">target</span><span class="hl-11">.</span><span class="hl-3">value</span><span class="hl-11"> })</span><br/><span class="hl-11">        </span><span class="hl-4">}</span><br/><span class="hl-0">      </span><span class="hl-8">/&gt;</span><br/><span class="hl-0">    </span><span class="hl-8">&lt;/</span><span class="hl-9">div</span><span class="hl-8">&gt;</span><br/><span class="hl-0">  ),</span><br/><span class="hl-0">  </span><span class="hl-12">// Add more question types and their render functions here</span><br/><span class="hl-0">};</span>
+</code></pre>
+
+<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+  <h2>API</h2>
+</a>
+<table>
+<thead>
+<tr>
+<th>Component / Type</th>
+<th>Property / Function</th>
+<th>Type / Signature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>WhizFlow</strong></td>
+<td></td>
+<td></td>
+<td>Main component for managing the workflow.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>workflow</code></td>
+<td><code>Step[]</code></td>
+<td>An array of <code>Step</code> objects defining the workflow. (Required)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>onComplete</code></td>
+<td><code>(answers: Answers) =&gt; void</code></td>
+<td>A callback function to be called when the workflow reaches the <code>done</code> step. (Optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>questionTypes</code></td>
+<td><code>{ [key: string]: QuestionRenderFunction }</code></td>
+<td>An object with keys representing the question type and values as the corresponding render functions. (Optional)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>step</code></td>
+<td><code>Step</code></td>
+<td>The current step object. (Render prop)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>answers</code></td>
+<td><code>Record&lt;string, any&gt;</code></td>
+<td>An object containing the answers for each question in the workflow. (Render prop)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>setAnswers</code></td>
+<td><code>(updatedAnswers: Record&lt;string, any&gt;) =&gt; void</code></td>
+<td>A function to update the <code>answers</code> object. (Render prop)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>handleNext</code></td>
+<td><code>() =&gt; void</code></td>
+<td>A function to handle navigation to the next step in the workflow. (Render prop)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>renderQuestion</code></td>
+<td><code>(questionId: string) =&gt; React.ReactNode</code></td>
+<td>A function to render the correct question type based on the provided dictionary. (Render prop)</td>
+</tr>
+<tr>
+<td><strong>Step</strong></td>
+<td></td>
+<td></td>
+<td>An object defining a single step in the workflow.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>A unique identifier for the step.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>questions</code></td>
+<td><code>Question[]</code></td>
+<td>An array of <code>Question</code> objects.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>next</code></td>
+<td><code>(answers: Record&lt;string, any&gt;) =&gt; string | &#39;done&#39;</code></td>
+<td>A function that determines the next step in the workflow based on the current answers. It should return the next step&#39;s ID or &#39;done&#39; if the workflow is complete.</td>
+</tr>
+<tr>
+<td><strong>Question</strong></td>
+<td></td>
+<td></td>
+<td>An object defining a single question within a step.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>A unique identifier for the question.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>prompt</code></td>
+<td><code>string</code></td>
+<td>The question&#39;s text.</td>
+</tr>
+<tr>
+<td></td>
+<td><code>inputType</code></td>
+<td><code>string</code></td>
+<td>The question&#39;s input type, which corresponds to the key in the <code>questionTypes</code> prop passed to the <code>WhizFlow</code> component.</td>
+</tr>
+<tr>
+<td><strong>QuestionTypes</strong></td>
+<td>-</td>
+<td><code>{ [key: string]: QuestionRenderFunction }</code></td>
+<td>An object with keys representing the question type and values as the corresponding render functions. (Optional)</td>
+</tr>
+<tr>
+<td><strong>QuestionRenderFunction</strong></td>
+<td>-</td>
+<td><code>(question: Question, answers: Record&lt;string, any&gt;, setAnswers: (updatedAnswers: Record&lt;string, any&gt;) =&gt; void) =&gt; React.ReactNode</code></td>
+<td>The render functions should take the question, answers, and a <code>setAnswers</code> function as arguments and return a React element. You can define custom question types and their implementations in the <code>questionTypes</code> object.</td>
+</tr>
+</tbody></table>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p>MIT © [Itamar Dori](<a href="https://github.com/Itamar">https://github.com/Itamar</a> Dori), MobiMatter LTD</p>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">whizflow -<wbr/> v0.1.0</a>
+<ul>
+<li class="tsd-kind-module"><a href="modules/_internal_.html">&lt;internal&gt;</a></li></ul></li></ul></div></details></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>

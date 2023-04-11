@@ -1,18 +1,20 @@
-# whizflow
+# WhizFlow
 
-[![NPM](https://img.shields.io/npm/v/whizflow.svg)](https://www.npmjs.com/package/whizflow)
-[![npm](https://img.shields.io/npm/dm/whizflow.svg)](https://www.npmjs.com/package/whizflow)
-![GitHub](https://img.shields.io/github/license/Itamar Dori/whizflow)
+WhizFlow is a lightweight, headless and extensible React library for building dynamic multi-step forms or troubleshooting workflows.
 
-This project is generated from [react-typescript-library template](https://github.com/alioguzhan/react-typescript-library).
+## Features
 
-## Install
+- Headless: Gives you full control over the UI and styling.
+- Extensible: Allows custom question types and render implementations.
+- Flexible: Easily build complex workflows with conditional branching.
+
+## Installation
 
 ```bash
-npm install --save whizflow
+npm install whizflow
 ```
 
-Or with yarn:
+or
 
 ```bash
 yarn add whizflow
@@ -20,10 +22,165 @@ yarn add whizflow
 
 ## Usage
 
+1. Import WhizFlow and required types:
 
-## API / Props
+```jsx
+import WhizFlow from 'whizflow';
+import { Step } from 'whizflow/types';
+```
 
+2. Define your workflow:
+
+```jsx
+const workflow: Step[] = [
+  {
+    id: 'step1',
+    questions: [
+      {
+        id: 'question1',
+        prompt: 'What is your name?',
+        inputType: 'text',
+      },
+    ],
+    next: (answers) => 'step2',
+  },
+  {
+    id: 'step2',
+    questions: [
+      {
+        id: 'question2',
+        prompt: 'What is your favorite color?',
+        inputType: 'text',
+      },
+    ],
+    next: (answers) => 'done',
+  },
+];
+```
+
+3. Define your custom question types (optional):
+
+```jsx
+const questionTypes = {
+  text: (question, answers, setAnswers) => (
+    <div key={question.id}>
+      <label htmlFor={question.id}>{question.prompt}</label>
+      <input
+        id={question.id}
+        type="text"
+        value={answers[question.id] || ''}
+        onChange={(e) =>
+          setAnswers({ ...answers, [question.id]: e.target.value })
+        }
+      />
+    </div>
+  ),
+  // Add more question types and their render functions here
+};
+```
+
+4. Use the WhizFlow component in your application:
+
+```jsx
+const YourComponent = () => {
+  return (
+    <WhizFlow workflow={workflow} questionTypes={questionTypes}>
+      {({ step, answers, setAnswers, handleNext, renderQuestion }) => (
+        <div>
+          {step.questions.map((question) => renderQuestion(question.id))}
+          <button onClick={handleNext}>Next</button>
+        </div>
+      )}
+    </WhizFlow>
+  );
+};
+
+export default YourComponent;
+```
+
+## Types
+
+### WhizFlow
+
+`WhizFlow` is the main component for managing the workflow. It accepts the following props:
+
+#### Props
+
+- `workflow` (required): An array of `Step` objects defining the workflow.
+- `onComplete` (optional): A callback function to be called when the workflow reaches the `done` step.
+- `questionTypes` (optional): An object with keys representing the question type and values as the corresponding render functions.
+
+#### Render Props
+
+- `step`: The current step object.
+- `answers`: An object containing the answers for each question in the workflow.
+- `setAnswers`: A function to update the `answers` object.
+- `handleNext`: A function to handle navigation to the next step in the workflow.
+- `renderQuestion`: A function to render the correct question type based on the provided dictionary.
+
+### Step
+
+A `Step` object defines a single step in the workflow and includes the following properties:
+
+- `id`: A unique identifier for the step.
+- `questions`: An array of `Question` objects.
+- `next`: A function that determines the next step in the workflow based on the current answers. It should return the next step's ID or `done` if the workflow is complete.
+
+### Question
+
+A `Question` object defines a single question within a step and includes the following properties:
+
+- `id`: A unique identifier for the question.
+- `prompt`: The question's text.
+- `inputType`: The question's input type, which corresponds to the key in the `questionTypes` prop passed to the `WhizFlow` component.
+
+### QuestionTypes
+
+An object with keys representing the question type and values as render functions. The render functions should take the question, answers, and a `setAnswers` function as arguments and return a React element. You can define custom question types and their implementations in the `questionTypes` object.
+
+```tsx
+const questionTypes = {
+  text: (question, answers, setAnswers) => (
+    <div key={question.id}>
+      <label htmlFor={question.id}>{question.prompt}</label>
+      <input
+        id={question.id}
+        type="text"
+        value={answers[question.id] || ''}
+        onChange={(e) =>
+          setAnswers({ ...answers, [question.id]: e.target.value })
+        }
+      />
+    </div>
+  ),
+  // Add more question types and their render functions here
+};
+```
+
+## API
+
+| Component / Type | Property / Function | Type / Signature | Description |
+| -- | -- | --------- | -------------- |
+| **WhizFlow** | | | Main component for managing the workflow. |
+| | `workflow` | `Step[]` | An array of `Step` objects defining the workflow. (Required) |
+| | `onComplete` | `(answers: Answers) => void` |A callback function to be called when the workflow reaches the `done` step. (Optional) |
+| | `questionTypes` | `{ [key: string]: QuestionRenderFunction }` | An object with keys representing the question type and values as the corresponding render functions. (Optional) |
+| | `step` | `Step` | The current step object. (Render prop) |
+| | `answers` | `Record<string, any>` | An object containing the answers for each question in the workflow. (Render prop) |
+| | `setAnswers` | `(updatedAnswers: Record<string, any>) => void` | A function to update the `answers` object. (Render prop) |
+| | `handleNext` | `() => void` | A function to handle navigation to the next step in the workflow. (Render prop) |
+| | `renderQuestion` | `(questionId: string) => React.ReactNode` | A function to render the correct question type based on the provided dictionary. (Render prop) |
+| **Step** | | | An object defining a single step in the workflow. |
+| | `id` | `string` | A unique identifier for the step. |
+| | `questions` | `Question[]` | An array of `Question` objects. |
+| | `next` | `(answers: Record<string, any>) => string \| 'done'` | A function that determines the next step in the workflow based on the current answers. It should return the next step's ID or 'done' if the workflow is complete. |
+| **Question** | | | An object defining a single question within a step. |
+| | `id` | `string` | A unique identifier for the question. |
+| | `prompt` | `string` | The question's text. |
+| | `inputType` | `string` | The question's input type, which corresponds to the key in the `questionTypes` prop passed to the `WhizFlow` component. |
+| **QuestionTypes** | - | `{ [key: string]: QuestionRenderFunction }` | An object with keys representing the question type and values as the corresponding render functions. (Optional) |
+| **QuestionRenderFunction** | - | `(question: Question, answers: Record<string, any>, setAnswers: (updatedAnswers: Record<string, any>) => void) => React.ReactNode` | The render functions should take the question, answers, and a `setAnswers` function as arguments and return a React element. You can define custom question types and their implementations in the `questionTypes` object. |
 
 ## License
 
-MIT © [Itamar Dori](https://github.com/Itamar Dori)
+MIT © [Itamar Dori](https://github.com/Itamar Dori), MobiMatter LTD
