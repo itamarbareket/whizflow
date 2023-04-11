@@ -2,7 +2,7 @@
   "name": "whizflow",
   "version": "0.1.0",
   "keywords": [],
-  "description": "",
+  "description": "WhizFlow is a lightweight, headless and extensible React library for building dynamic multi-step forms or troubleshooting workflows.",
   "main": "dist/index.min.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
