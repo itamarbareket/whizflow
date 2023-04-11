@@ -1,8 +1,14 @@
 export type Answers = Record<string, string>;
 
+export interface Option {
+  id: string;
+  value: string;
+  label: string;
+}
 export interface Question {
   id: string;
   prompt: string | ((answers: Answers) => string);
+  options?: Option[];
   inputType: string;
 }
 
