@@ -1,6 +1,6 @@
 {
   "name": "whizflow",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "keywords": [],
   "description": "WhizFlow is a lightweight, headless and extensible React library for building dynamic multi-step forms or troubleshooting workflows.",
   "main": "dist/index.min.js",
@@ -11,10 +11,10 @@
   ],
   "author": "Itamar Dori <itamar@mobimatter.com>",
   "repository": {
-    "url": "",
+    "url": "https://github.com/itamarbareket/whizflow",
     "type": "git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/itamarbareket/whizflow",
   "license": "MIT",
   "private": false,
   "scripts": {
