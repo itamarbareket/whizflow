@@ -4,5 +4,9 @@
     },
     "github": {
       "release": true
+    },
+    "npm": {
+        "versionArgs": ["--allow-same-version", "--workspaces-update=false"],
+        "publishArgs": ["--include-workspace-root"]
     }
   }
