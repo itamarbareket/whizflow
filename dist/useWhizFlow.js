@@ -7,7 +7,9 @@ export var useWhizFlow = function (workflow, onComplete) {
     var handleNext = function () {
         var result = step.next(answers);
         var nextStepId = typeof result === 'string' ? result : result.nextStepId;
-        var updatedAnswers = typeof result !== 'string' && result.updatedAnswers ? result.updatedAnswers : answers;
+        var updatedAnswers = typeof result !== 'string' && result.updatedAnswers
+            ? result.updatedAnswers
+            : answers;
         if (nextStepId === 'done') {
             onComplete(updatedAnswers);
         }

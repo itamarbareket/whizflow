@@ -1,1 +1,1 @@
-{"version":3,"file":"useWhizFlow.d.ts","sourceRoot":"","sources":["../src/useWhizFlow.ts"],"names":[],"mappings":";AAEA,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,MAAM,SAAS,CAAC;AAExC,eAAO,MAAM,WAAW,aAAc,IAAI,EAAE,wBAAwB,OAAO,KAAK,IAAI;;;;;CAiCnF,CAAC"}
+{"version":3,"file":"useWhizFlow.d.ts","sourceRoot":"","sources":["../src/useWhizFlow.ts"],"names":[],"mappings":";AAEA,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,MAAM,SAAS,CAAC;AAExC,eAAO,MAAM,WAAW,aACZ,IAAI,EAAE,wBACM,OAAO,KAAK,IAAI;;;;;CAuCvC,CAAC"}
