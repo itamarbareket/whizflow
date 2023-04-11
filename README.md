@@ -9,6 +9,9 @@ WhizFlow is a lightweight, headless and extensible React library for building dy
 - Flexible: Easily build complex workflows with conditional branching.
 - Agnostic: Use [Formik](https://formik.org/) or any other form/validation library that you want to handle the input.
 
+## Demo
+[CodeSandbox Demo](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx) is available [here](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx)
+
 ## Installation
 
 ```bash
