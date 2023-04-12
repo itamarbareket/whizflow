@@ -11,7 +11,7 @@ WhizFlow is a lightweight, headless and extensible React library for building dy
 
 ## Demo
 
-- [Simple Demo](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx
+- [Simple Demo](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx)
 - [Formik Demo](https://codesandbox.io/s/priceless-browser-74j8dh?file=/src/workflow.ts)
 
 ## Installation
