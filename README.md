@@ -10,7 +10,9 @@ WhizFlow is a lightweight, headless and extensible React library for building dy
 - Agnostic: Use [Formik](https://formik.org/) or any other form/validation library that you want to handle the input.
 
 ## Demo
-[CodeSandbox Demo](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx) is available [here](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx)
+
+- [Simple Demo](https://codesandbox.io/s/headless-glitter-9nuvrw?file=/src/App.tsx
+- [Formik Demo](https://codesandbox.io/s/priceless-browser-74j8dh?file=/src/workflow.ts)
 
 ## Installation
 
@@ -30,7 +32,7 @@ yarn add whizflow
 
 ```jsx
 import WhizFlow from 'whizflow';
-import { Step } from 'whizflow/types';
+import { Step } from 'whizflow/dist/types';
 ```
 
 2. Define your workflow:
