@@ -67,7 +67,7 @@ describe('WhizFlow with custom question types', () => {
         {({ step, answers, setAnswers, handleNext, renderQuestion }) => (
           <div>
             {step.questions.map((question) => renderQuestion(question.id))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>
@@ -86,7 +86,7 @@ describe('WhizFlow with custom question types', () => {
         {({ step, answers, setAnswers, handleNext, renderQuestion }) => (
           <div>
             {step.questions.map((question) => renderQuestion('non-existent'))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>
@@ -103,7 +103,7 @@ describe('WhizFlow with custom question types', () => {
         {({ step, answers, setAnswers, handleNext, renderQuestion }) => (
           <div>
             {step.questions.map((question) => renderQuestion(question.id))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>
@@ -120,7 +120,7 @@ describe('WhizFlow with custom question types', () => {
         {({ step, answers, setAnswers, handleNext, renderQuestion }) => (
           <div>
             {step.questions.map((question) => renderQuestion(question.id))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>

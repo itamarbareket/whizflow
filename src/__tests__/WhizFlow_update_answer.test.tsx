@@ -53,7 +53,7 @@ describe('WhizFlow with answer updating', () => {
                 })
               }
             />
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>

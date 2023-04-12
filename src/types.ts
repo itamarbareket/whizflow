@@ -10,6 +10,7 @@ export interface Question {
   prompt: string | ((answers: Answers) => string);
   options?: Option[];
   inputType: string;
+  context?: any;
 }
 
 export interface Step {
@@ -38,7 +39,7 @@ export interface WhizFlowProps {
     step: Step;
     answers: Answers;
     setAnswers: (value: Answers) => void;
-    handleNext: () => void;
+    handleNext: (submitterAnswers?: Answers) => void;
     renderQuestion: (questionId: string) => React.ReactNode;
   }) => JSX.Element;
 }

@@ -11,14 +11,15 @@ export const useWhizFlow = (
 
   const step = workflow[currentStep];
 
-  const handleNext = () => {
-    const result = step.next(answers);
+  const handleNext = (submitterAnswers?: Answers) => {
+    const currAnswers = submitterAnswers ?? answers;
+    const result = step.next(currAnswers);
 
     const nextStepId = typeof result === 'string' ? result : result.nextStepId;
     const updatedAnswers =
       typeof result !== 'string' && result.updatedAnswers
         ? result.updatedAnswers
-        : answers;
+        : currAnswers;
 
     if (nextStepId === 'done') {
       onComplete(updatedAnswers);

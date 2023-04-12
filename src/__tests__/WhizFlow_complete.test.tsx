@@ -52,7 +52,7 @@ describe('WhizFlow with answer passing', () => {
                 })
               }
             />
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>

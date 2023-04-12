@@ -169,7 +169,7 @@ const questionTypes = {
 | | `step` | `Step` | The current step object. (Render prop) |
 | | `answers` | `Record<string, any>` | An object containing the answers for each question in the workflow. (Render prop) |
 | | `setAnswers` | `(updatedAnswers: Record<string, any>) => void` | A function to update the `answers` object. (Render prop) |
-| | `handleNext` | `() => void` | A function to handle navigation to the next step in the workflow. (Render prop) |
+| | `handleNext` | `(submitterAnswers?: Record<string, any>) => void` | A function to handle navigation to the next step in the workflow, allows the submitter to update the answers. (Render prop) |
 | | `renderQuestion` | `(questionId: string) => React.ReactNode` | A function to render the correct question type based on the provided dictionary. (Render prop) |
 | **Step** | | | An object defining a single step in the workflow. |
 | | `id` | `string` | A unique identifier for the step. |
@@ -178,10 +178,16 @@ const questionTypes = {
 | **Question** | | | An object defining a single question within a step. |
 | | `id` | `string` | A unique identifier for the question. |
 | | `prompt` | `string` | The question's text. |
+| | `options` | `Option[]` | An optional option array for multi-select type of questions |
 | | `inputType` | `string` | The question's input type, which corresponds to the key in the `questionTypes` prop passed to the `WhizFlow` component. |
+| | `context?` | `any` | An optional context object for the question to pass (to be used later when rendering). |
+| **Option** | | | Answer option for multi-select type of questions. |
+| | `id` | `string` | A unique identifier for the option. |
+| | `label` | `string` | The option's text. |
+| | `value` | `string` | Value for the option |
 | **QuestionTypes** | - | `{ [key: string]: QuestionRenderFunction }` | An object with keys representing the question type and values as the corresponding render functions. (Optional) |
 | **QuestionRenderFunction** | - | `(question: Question, answers: Record<string, any>, setAnswers: (updatedAnswers: Record<string, any>) => void) => React.ReactNode` | The render functions should take the question, answers, and a `setAnswers` function as arguments and return a React element. You can define custom question types and their implementations in the `questionTypes` object. |
 
 ## License
 
-MIT © [Itamar Dori](https://github.com/Itamar Dori), MobiMatter LTD
+MIT © [Itamar Bareket](https://github.com/itamarbareket), MobiMatter LTD

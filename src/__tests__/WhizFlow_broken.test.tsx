@@ -45,7 +45,7 @@ describe('WhizFlow with broken flow', () => {
                 <input id={question.id} type={question.inputType} />
               </React.Fragment>
             ))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>

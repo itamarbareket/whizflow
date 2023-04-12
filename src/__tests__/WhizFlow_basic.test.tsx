@@ -45,7 +45,7 @@ describe('WhizFlow', () => {
               id={step.questions[0].id}
               type={step.questions[0].inputType}
             />
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>
@@ -69,7 +69,7 @@ describe('WhizFlow', () => {
                 <input id={question.id} type={question.inputType} />
               </React.Fragment>
             ))}
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>

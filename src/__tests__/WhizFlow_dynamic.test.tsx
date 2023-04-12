@@ -34,7 +34,7 @@ describe('WhizFlow with dynamic prompt', () => {
               id={step.questions[0].id}
               type={step.questions[0].inputType}
             />
-            <button onClick={handleNext}>Next</button>
+            <button onClick={() => handleNext()}>Next</button>
           </div>
         )}
       </WhizFlow>
