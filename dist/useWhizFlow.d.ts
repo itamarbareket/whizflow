@@ -4,6 +4,6 @@ export declare const useWhizFlow: (workflow: Step[], onComplete: (answers: Answe
     step: Step;
     answers: Answers;
     setAnswers: import("react").Dispatch<import("react").SetStateAction<Answers>>;
-    handleNext: () => void;
+    handleNext: (submitterAnswers?: Answers) => void;
 };
 //# sourceMappingURL=useWhizFlow.d.ts.map

@@ -7,12 +7,13 @@ var useWhizFlow = function (workflow, onComplete) {
     var _a = react.useState(0), currentStep = _a[0], setCurrentStep = _a[1];
     var _b = react.useState({}), answers = _b[0], setAnswers = _b[1];
     var step = workflow[currentStep];
-    var handleNext = function () {
-        var result = step.next(answers);
+    var handleNext = function (submitterAnswers) {
+        var currAnswers = submitterAnswers !== null && submitterAnswers !== void 0 ? submitterAnswers : answers;
+        var result = step.next(currAnswers);
         var nextStepId = typeof result === 'string' ? result : result.nextStepId;
         var updatedAnswers = typeof result !== 'string' && result.updatedAnswers
             ? result.updatedAnswers
-            : answers;
+            : currAnswers;
         if (nextStepId === 'done') {
             onComplete(updatedAnswers);
         }
