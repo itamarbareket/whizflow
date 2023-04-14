@@ -1,4 +1,8 @@
 # WhizFlow
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/whizflow)
+![npm](https://img.shields.io/npm/dm/whizflow)
+![npm](https://img.shields.io/npm/v/whizflow)
+![node-current](https://img.shields.io/node/v/whizflow)
 
 WhizFlow is a lightweight, headless and extensible React library for building dynamic multi-step forms or troubleshooting workflows.
 
@@ -118,8 +122,10 @@ export default YourComponent;
 
 - `step`: The current step object.
 - `answers`: An object containing the answers for each question in the workflow.
+- `loading`: A boolean to mark when `handleNext` is waiting to resolve.
 - `setAnswers`: A function to update the `answers` object.
 - `handleNext`: A function to handle navigation to the next step in the workflow.
+- `handlePrev`: A function to handle navigation to the previous step.
 - `renderQuestion`: A function to render the correct question type based on the provided dictionary.
 
 ### Step
@@ -170,14 +176,17 @@ const questionTypes = {
 | | `onComplete` | `(answers: Answers) => void` |A callback function to be called when the workflow reaches the `done` step. (Optional) |
 | | `questionTypes` | `{ [key: string]: QuestionRenderFunction }` | An object with keys representing the question type and values as the corresponding render functions. (Optional) |
 | | `step` | `Step` | The current step object. (Render prop) |
+| | `loading` | `boolean` | Whether `handleNext` is running asyncly. (Render prop) |
 | | `answers` | `Record<string, any>` | An object containing the answers for each question in the workflow. (Render prop) |
 | | `setAnswers` | `(updatedAnswers: Record<string, any>) => void` | A function to update the `answers` object. (Render prop) |
 | | `handleNext` | `(submitterAnswers?: Record<string, any>) => void` | A function to handle navigation to the next step in the workflow, allows the submitter to update the answers. (Render prop) |
+| | `handlePrev` | `() => void` | A function to handle navigation to the previous step in the workflow. (Render prop) |
 | | `renderQuestion` | `(questionId: string) => React.ReactNode` | A function to render the correct question type based on the provided dictionary. (Render prop) |
 | **Step** | | | An object defining a single step in the workflow. |
 | | `id` | `string` | A unique identifier for the step. |
 | | `questions` | `Question[]` | An array of `Question` objects. |
-| | `next` | `(answers: Record<string, any>) => string \| 'done'` | A function that determines the next step in the workflow based on the current answers. It should return the next step's ID or 'done' if the workflow is complete. |
+| | `next` | `string \| { nextStepId: string; updatedAnswers?: Answers } ֿֿֿ\| Promise<string> \| Promise<{ nextStepId: string; updatedAnswers?: Answers }>` | A function that determines the next step in the workflow based on the current answers. It should return the next step's ID or 'done' if the workflow is complete. |
+| | `context?` | `any` | An optional context object for the question to pass (to be used later when rendering). |
 | **Question** | | | An object defining a single question within a step. |
 | | `id` | `string` | A unique identifier for the question. |
 | | `prompt` | `string` | The question's text. |

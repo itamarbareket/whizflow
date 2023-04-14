@@ -16,9 +16,14 @@ export interface Question {
 export interface Step {
   id: string;
   questions: Question[];
+  context?: any;
   next: (
     answers: Answers
-  ) => string | { nextStepId: string; updatedAnswers?: Answers };
+  ) =>
+    | string
+    | { nextStepId: string; updatedAnswers?: Answers }
+    | Promise<string>
+    | Promise<{ nextStepId: string; updatedAnswers?: Answers }>;
 }
 
 export type QuestionRenderFunction = (
@@ -38,8 +43,10 @@ export interface WhizFlowProps {
   children: (props: {
     step: Step;
     answers: Answers;
+    loading: boolean;
     setAnswers: (value: Answers) => void;
     handleNext: (submitterAnswers?: Answers) => void;
+    handlePrev: () => void;
     renderQuestion: (questionId: string) => React.ReactNode;
   }) => JSX.Element;
 }
