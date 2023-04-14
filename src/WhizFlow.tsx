@@ -9,10 +9,8 @@ export const WhizFlow: React.FC<WhizFlowProps> = ({
   onComplete,
 }) => {
   const defaultOnComplete = () => {};
-  const { step, answers, setAnswers, handleNext } = useWhizFlow(
-    workflow,
-    onComplete ?? defaultOnComplete
-  );
+  const { step, answers, setAnswers, handleNext, handlePrev, loading } =
+    useWhizFlow(workflow, onComplete ?? defaultOnComplete);
 
   const renderQuestion = (questionId: string) => {
     const question = step.questions.find((q) => q.id === questionId);
@@ -39,5 +37,13 @@ export const WhizFlow: React.FC<WhizFlowProps> = ({
     return renderFunc(question, answers, setAnswers);
   };
 
-  return children({ step, answers, setAnswers, handleNext, renderQuestion });
+  return children({
+    step,
+    answers,
+    loading,
+    setAnswers,
+    handleNext,
+    renderQuestion,
+    handlePrev,
+  });
 };
