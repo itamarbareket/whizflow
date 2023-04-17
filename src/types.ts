@@ -1,4 +1,4 @@
-export type Answers = Record<string, string>;
+export type Answers = Record<string, any>;
 
 export interface Option {
   id: string;
