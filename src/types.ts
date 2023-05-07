@@ -44,9 +44,15 @@ export interface WhizFlowProps {
     step: Step;
     answers: Answers;
     loading: boolean;
+    trail: number[];
     setAnswers: (value: Answers) => void;
     handleNext: (submitterAnswers?: Answers) => void;
     handlePrev: () => void;
     renderQuestion: (questionId: string) => React.ReactNode;
+    setStep: (
+      stepId: string,
+      newTrail?: number[],
+      updatedAnswers?: Answers
+    ) => void;
   }) => JSX.Element;
 }

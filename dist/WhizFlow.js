@@ -2,7 +2,7 @@ import { useWhizFlow } from './useWhizFlow';
 export var WhizFlow = function (_a) {
     var workflow = _a.workflow, questionTypes = _a.questionTypes, children = _a.children, onComplete = _a.onComplete;
     var defaultOnComplete = function () { };
-    var _b = useWhizFlow(workflow, onComplete !== null && onComplete !== void 0 ? onComplete : defaultOnComplete), step = _b.step, answers = _b.answers, setAnswers = _b.setAnswers, handleNext = _b.handleNext, handlePrev = _b.handlePrev, loading = _b.loading;
+    var _b = useWhizFlow(workflow, onComplete !== null && onComplete !== void 0 ? onComplete : defaultOnComplete), step = _b.step, trail = _b.trail, answers = _b.answers, setAnswers = _b.setAnswers, handleNext = _b.handleNext, handlePrev = _b.handlePrev, setStep = _b.setStep, loading = _b.loading;
     var renderQuestion = function (questionId) {
         var question = step.questions.find(function (q) { return q.id === questionId; });
         if (!question) {
@@ -24,10 +24,12 @@ export var WhizFlow = function (_a) {
         step: step,
         answers: answers,
         loading: loading,
+        trail: trail,
         setAnswers: setAnswers,
         handleNext: handleNext,
         renderQuestion: renderQuestion,
         handlePrev: handlePrev,
+        setStep: setStep,
     });
 };
 //# sourceMappingURL=WhizFlow.js.map

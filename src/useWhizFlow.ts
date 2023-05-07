@@ -21,6 +21,25 @@ export const useWhizFlow = (
     }
   };
 
+  const setStep = async (
+    stepId: string,
+    newTrail?: number[],
+    updatedAnswers?: Answers
+  ) => {
+    const currAnswers = updatedAnswers ?? answers;
+    const currTrail = newTrail ?? trail;
+    setAnswers(currAnswers);
+    const nextStepIndex = workflow.findIndex((step) => step.id === stepId);
+
+    if (nextStepIndex === -1) {
+      console.error(`Error: Non-existent step "${stepId}"`);
+      return;
+    }
+
+    setTrail(currTrail);
+    setCurrentStep(nextStepIndex);
+  };
+
   const handleNext = async (submitterAnswers?: Answers) => {
     const currAnswers = submitterAnswers ?? answers;
     const result = step.next(currAnswers);
@@ -70,10 +89,12 @@ export const useWhizFlow = (
 
   return {
     step,
+    trail,
     answers,
     loading,
     setAnswers,
     handleNext,
     handlePrev,
+    setStep,
   };
 };

@@ -62,6 +62,22 @@ export var useWhizFlow = function (workflow, onComplete) {
             return [2 /*return*/];
         });
     }); };
+    var setStep = function (stepId, newTrail, updatedAnswers) { return __awaiter(void 0, void 0, void 0, function () {
+        var currAnswers, currTrail, nextStepIndex;
+        return __generator(this, function (_a) {
+            currAnswers = updatedAnswers !== null && updatedAnswers !== void 0 ? updatedAnswers : answers;
+            currTrail = newTrail !== null && newTrail !== void 0 ? newTrail : trail;
+            setAnswers(currAnswers);
+            nextStepIndex = workflow.findIndex(function (step) { return step.id === stepId; });
+            if (nextStepIndex === -1) {
+                console.error("Error: Non-existent step \"".concat(stepId, "\""));
+                return [2 /*return*/];
+            }
+            setTrail(currTrail);
+            setCurrentStep(nextStepIndex);
+            return [2 /*return*/];
+        });
+    }); };
     var handleNext = function (submitterAnswers) { return __awaiter(void 0, void 0, void 0, function () {
         var currAnswers, result, nextStepId, updatedAnswers, awaitedResult, ex_1, nextStepIndex;
         var _a, _b;
@@ -125,11 +141,13 @@ export var useWhizFlow = function (workflow, onComplete) {
     }); };
     return {
         step: step,
+        trail: trail,
         answers: answers,
         loading: loading,
         setAnswers: setAnswers,
         handleNext: handleNext,
         handlePrev: handlePrev,
+        setStep: setStep
     };
 };
 //# sourceMappingURL=useWhizFlow.js.map
